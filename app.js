@@ -17,12 +17,20 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  // Calculate base premium
+   // Calculate base premium
   let premium = 0;
   if (vehicleType.value === "car") {
     premium = 1000;
   } else if (vehicleType.value === "truck") {
+    premium = 2000;
+  } else if (vehicleType.value === "bus") {
     premium = 1500;
+  } else if (vehicleType.value === "off_road") {
+    premium = 2500;
+  } else if (vehicleType.value === "electric") {
+    premium = 800;
+  } else if (vehicleType.value === "autonomous") {
+    premium = 3000;
   } else {
     premium = 500;
   }
