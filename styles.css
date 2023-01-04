@@ -1,0 +1,130 @@
+body {
+    background: linear-gradient(180deg, #74ebd5 0%, #9face6 100%);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #333;
+  }
+
+
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  nav {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+  
+  nav a:hover {
+    color: #333;
+  }
+  
+  h1 {
+    color: black;
+    font-size: 25px;
+    margin: 100px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    align-content: left;
+  }
+  
+  form {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: rgb(20, 3, 3);
+  }
+  
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #74ebd5;
+    border-radius: 4px;
+    font-size: 18px;
+    outline: none;
+  }
+  
+  input[type="number"] {
+    width: 150px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    background-color: #74ebd5;
+    color: #fff;
+    font-size: 20px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #9face6;
+  }
+  
+  #quote-result {
+    margin-top: 50px;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  #quote-result.error {
+    color: #ff4136;
+  }
+  
+  #quote-result.success {
+    color: #2ecc40;
+  }
+  
+  #quote-result.pending {
+    color: #f1c40f;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

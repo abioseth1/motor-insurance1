@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Retrieve Quote</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="quote.html">Get a Quote</a></li> 
+       <!--     <li><a href="retrieve-quote.html">Retrieve Quote</a></li>   ---->
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+  <h1>Retrieve Quote</h1>
+  <form id="quote-form">
+    <label for="quote-number">Quote Number:</label>
+    <input type="text" id="quote-number" name="quoteNumber">
+    <br>
+    <button type="submit">Retrieve Quote</button>
+  </form>
+  <div id="quote-result"></div>
+  <script>
+    // Handle form submission and retrieve quote data from server
+    const form = document.querySelector('#quote-form');
+    const quoteNumber = document.querySelector('#quote-number');
+    const quoteResult = document.querySelector('#quote-result');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(`/api/quote/${quoteNumber.value}`)
+        .then(response => response.json())
+        .then(data => {
+          quoteResult.innerHTML = `
+            <p>Base Premium: $${data.basePremium}</p>
+            <p>Age Surcharge: $${data.ageSurcharge}</p>
+            <p>History Surcharge: $${data.historySurcharge}</p>
+            <p>Total Premium: $${data.totalPremium}</p>
+            <p>Acceptance Probability: ${data.acceptanceProbability}%</p>
+          `;
+        });
+    });
+  </script>
+</body>
+</html>

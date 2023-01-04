@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>A&B Motor Insurance</title>
+  <link rel="stylesheet" href="styles.css">
+<style class="style1">
+      p {
+    text-align: left;
+    padding-left: 70px;
+    color: black;
+    padding-bottom: 50px;
+    padding-right: 150px;
+    font-size: 1.8rem;
+  }
+  
+  h1 {
+    text-align: left;
+    padding-left: 70px;
+    color: black;
+    padding-bottom: 10px;
+    
+  }
+</style>
+
+</head>
+<body>
+
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="quote.html">Get a Quote</a></li>
+        <li><a href="retrieve-quote.html">Retrieve Quote</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>Welcome to A&B Motor Insurance!</h1>
+  <p>We offer a variety of coverages for all types of vehicles. Get a quote today to find out how much you can save on your insurance!</p>
+
+
+  <form id="quote-form">
+    <label for="vehicle-type">Vehicle Type:</label>
+    <select id="vehicle-type">
+      <option value="car">Car</option>
+      <option value="truck">Truck</option>
+      <option value="bus">Buses</option>
+      <option value="off_road">Off-Road Vehicles</option>
+      <option value="electric">Electric Vehicles</option>
+      <option value="autonomous">Autonomous Vehicles</option>
+      <option value="motorcycle">Motorcycle</option>
+    </select>
+    <br>
+    <label for="vehicle-year">Vehicle Year:</label>
+    <input type="number" id="vehicle-year" min="1900" max="2022">
+    <br>
+    <label for="driving-history">Driving History:</label>
+    <textarea id="driving-history"></textarea>
+    <br>
+    <button type="submit">Get Quote</button>
+  </form>
+  <div id="quote-result"></div>
+  <script src="app.js"></script>
+</body>
+</html>

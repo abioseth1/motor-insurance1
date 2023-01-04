@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quote</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+     <!--   <li><a href="quote.html">Get a Quote</a></li> ---->
+            <li><a href="retrieve-quote.html">Retrieve Quote</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <h1>A&B Motor Insurance</h1>
+
+  <h1>Your Quotes</h1>
+
+  <p class="/">No quote discovered on your account</p>
+  <div id="quote-details"></div>
+  <script>
+    // Retrieve quote data from server and display it
+    const quoteDetails = document.querySelector('#quote-details');
+    fetch('/api/quote')
+      .then(response => response.json())
+      .then(data => {
+        quoteDetails.innerHTML = `
+          <p>Base Premium: $${data.basePremium}</p>
+          <p>Age Surcharge: $${data.ageSurcharge}</p>
+          <p>History Surcharge: $${data.historySurcharge}</p>
+          <p>Total Premium: $${data.totalPremium}</p>
+          <p>Acceptance Probability: ${data.acceptanceProbability}%</p>
+        `;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact Us</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="quote.html">Get a Quote</a></li> 
+            <li><a href="retrieve-quote.html">Retrieve Quote</a></li>
+        <!--  <li><a href="contact-us.html">Contact Us</a></li> ---->
+        </ul>
+      </nav>
+
+      <h1>A&B Motor Insurance</h1>
+
+  <h1>Contact Us</h1>
+  <p style="font-size: 20px; color: black;">We would love to hear from you! Please use the form below to get in touch with us.</p>
+  <form action="/submit-message" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
+    <br>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    <br>
+    <button type="submit">Send Message</button>
+</form>
+<div id="success-message" style="display:none;">
+    <p>Thank you for your message! We will get back to you as soon as possible.</p>
+  </div>
+  <script>
+    // Get the form element
+    var form = document.getElementById("contact-form");
+
+    // Add an event listener to the form's submit event
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Send the form data to the server using an AJAX request
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", form.action);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function() {
+        // Regardless of the status code, show the success message
+        document.getElementById("success-message").style.display = "block";
+        form.style.display = "none";
+      };
+    xhr.send(new FormData(form));
+  });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+          <!--   <li><a href="login.html">Login</a></li>  ---->
+       <li><a href="quote.html">Get a Quote</a></li>
+            <li><a href="retrieve-quote.html">Retrieve Quote</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <h1>A&B Motor Insurance</h1>
+
+  <h1>Login</h1>
+  <p style="font-size: 20px; color: black;">Please enter your login credentials to access your account.</p>
+  <form id="login-form" action="/authenticate" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    // Get the form element
+    var form = document.getElementById("login-form");
+
+    // Add an event listener to the form's submit event
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Send the form data to the server using an AJAX request
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", form.action);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function() {
+        // Regardless of the status code, redirect the user to the quote page
+        window.location.href = "/quote";
+      };
+      xhr.send(new FormData(form));
+    });
+  </script>
+</body>
+</html>
